@@ -1,0 +1,118 @@
+:root {
+    --primary: #121212;
+    --primary-hover: #ACCEB9;
+    --bg: #6DCF9173 url(p5.png);
+    --card: #B6BAE1;
+    --text: #1e293b;
+    --text-light: #64748b;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+body { background: var(--bg); background-size: cover; background-attachment: fixed; color: var(--text); overflow-x: hidden; }
+.hidden { display: none !important; }
+
+/* ১. লোডার */
+#loader-wrapper { position: fixed; inset: 0; background: #fff; display: flex; justify-content: center; align-items: center; z-index: 3000; }
+.brand-logo { font-size: 3rem; font-weight: 800; color: var(--primary); animation: bounce 1s infinite alternate; }
+.dots-container { display: flex; gap: 5px; margin: 15px 0; justify-content: center; }
+.dot { width: 8px; height: 8px; background: var(--primary); border-radius: 50%; animation: blink 1.4s infinite; }
+@keyframes bounce { to { transform: translateY(-10px); } }
+@keyframes blink { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
+
+/* ২. হেডার */
+.glass-nav { background: rgba(219, 178, 209, 0.9) url(p8.png); padding: 15px; border-bottom: 1px solid #e2e8f0; position: sticky; top: 0; z-index: 100; border-radius: 10px; margin: 2px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);}
+.nav-container { max-width: 800px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+.logo { background: rgba(235, 196, 121, 1); padding: 6px 12px; border-radius: 5px; font-weight: bold; color: white; }
+.nav-right { display: flex; align-items: center; gap: 10px; }
+#display-user { font-weight: 600; font-size: 0.9rem; }
+
+/* ৩. সাইডবার ও মেনু */
+.menu-icon { cursor: pointer; display: flex; flex-direction: column; gap: 4px; padding: 5px; }
+.menu-icon span { width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: 0.3s; }
+.sidebar { position: fixed; top: 0; right: -280px; width: 280px; height: 100vh; background: #fff; box-shadow: -5px 0 15px rgba(0,0,0,0.1); z-index: 2000; transition: 0.4s ease; padding: 20px; }
+.sidebar.active { right: 0; }
+.sidebar-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+#close-sidebar { font-size: 2rem; cursor: pointer; }
+.sidebar-links { list-style: none; }
+.sidebar-links li { padding: 15px 10px; font-weight: 500; cursor: pointer; border-radius: 8px; transition: 0.2s; }
+.sidebar-links li:hover { background: #f1f5f9; color: var(--primary); }
+
+/* ৪. অথেন্টিকেশন */
+.login-wrapper { height: 100vh; display: flex; align-items: center; justify-content: center; }
+.auth-box { background: var(--card); padding: 30px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); width: 90%; max-width: 400px; }
+.input-group input { width: 100%; padding: 12px; margin-bottom: 12px; border: 1.5px solid #e2e8f0; border-radius: 10px; }
+.primary-btn { width: 100%; padding: 12px; background: var(--primary); color: #fff; border: none; border-radius: 10px; cursor: pointer; font-weight: 600; }
+.signup-field.hidden { display: none; }
+
+/* ৫. ফিড ও পোস্ট */
+.container { max-width: 600px; margin: 20px auto; padding: 0 15px; }
+.card { background: var(--card); border-radius: 15px; padding: 15px; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+.user-row { display: flex; gap: 12px; }
+.avatar-placeholder, .avatar-sm { width: 40px; height: 40px; background: #e2e8f0; border-radius: 10px; flex-shrink: 0; }
+textarea { flex: 1; border: none; background: #f1f5f9; border-radius: 12px; padding: 10px; resize: none; min-height: 60px; }
+.post-options { display: flex; justify-content: flex-end; gap: 10px; margin-top: 10px; }
+.opt-btn { background: #f1f5f9; border: none; padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 0.8rem; }
+.post-btn { background: var(--primary); color: white; border: none; padding: 6px 20px; border-radius: 8px; cursor: pointer; }
+
+
+/* প্রোফাইল আইকন ক্লিকেবল স্টাইল */
+#user-pfp-nav, #post-creator-avatar {
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+#user-pfp-nav:hover, #post-creator-avatar:hover {
+    transform: scale(1.1);
+    opacity: 0.9;
+}
+
+/* প্রোফাইল পেজ স্টাইল */
+.avatar-lg {
+    width: 100px;
+    height: 100px;
+    background: #ACD35D;
+    border-radius: 50%;
+    margin: 0 auto 15px;
+    border: 4px solid white;
+    background-size: cover;
+    background-position: center;
+    transition: 0.3s;
+    transform: 1s;
+}
+
+.profile-header {
+    text-align: center;
+    position: relative;
+    padding: 40px 20px;
+}
+
+.back-btn {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: none;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+    color: var(--primary);
+}
+
+.profile-info h2 { margin-bottom: 5px; }
+.profile-info p { color: var(--text-light); font-size: 0.9rem; margin-bottom: 20px;
+    background: #94F4BE;
+    border-radius: 10px;
+}
+
+.profile-stats {
+    background: #98B1D5;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    border-top: 1px solid rgba(0,0,0,0.05);
+    padding-top: 15px;
+    border-radius: 15px;
+}
+
+.profile-stats div { display: flex; flex-direction: column; }
+.profile-stats strong { font-size: 1.2rem; }
+.profile-stats span { font-size: 0.8rem; color: var(--text-light); }

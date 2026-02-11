@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexGen-Z Social - Connect Differently</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="loader-wrapper">
+        <div class="glass-loader">
+            <div class="brand-logo">NexGen-Z</div>
+            <div class="dots-container">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+            <p>Setting up your feed...</p>
+        </div>
+    </div>
+
+    <div id="sidebar" class="sidebar">
+        <div class="sidebar-header">
+            <h3>Menu</h3>
+            <span id="close-sidebar">&times;</span>
+        </div>
+        <ul class="sidebar-links">
+            <li>👤 Profile</li>
+            <li>👥 Friends</li>
+            <li>📦 Groups</li>
+            <li>⚙️ Settings</li>
+            <li id="logout-btn-sidebar" style="color: #ef4444; border-top: 1px solid #eee; margin-top: 20px;">Logout</li>
+        </ul>
+    </div>
+
+    <div id="auth-section" class="hidden">
+        <div class="login-wrapper">
+            <div class="auth-box">
+                <div class="auth-header">
+                    <h2 id="auth-title">NexGen-Z Social</h2>
+                    <p id="auth-desc">আপনার বন্ধুদের সাথে যুক্ত হওয়ার সময় শুরু।</p>
+                </div>
+                <form id="auth-form">
+                    <div class="input-group" id="signup-extra-fields">
+                        <input type="text" id="contact-info" placeholder="ইমেল বা ফোন নাম্বার" class="signup-field hidden">
+                        <label class="signup-field hidden" style="font-size: 0.8rem; color: var(--text-light); margin-bottom: 5px; display: block;">প্রোফাইল পিকচার দিন:</label>
+                        <input type="file" id="profile-pic-input" accept="image/*" class="signup-field hidden" style="padding: 5px;">
+                    </div>
+                    <div class="input-group">
+                        <input type="text" id="username" placeholder="ইউজারনেম (লগইনের জন্য)" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="password" id="password" placeholder="পাসওয়ার্ড" required>
+                    </div>
+                    <p id="message" style="color: #ef4444; font-size: 0.85rem; margin-bottom: 15px; text-align: center;"></p>
+                    <button type="submit" id="submit-btn" class="primary-btn">প্রবেশ করুন</button>
+                </form>
+                <div class="auth-footer">
+                    <p id="toggle-text">অ্যাকাউন্ট নেই? <a href="#" id="toggle-auth">Create New Account.</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="main-app" class="hidden">
+        <nav class="glass-nav">
+            <div class="nav-container">
+                <div class="logo">NexGen-Z</div>
+                <div class="nav-right">
+                    <span id="display-user"></span>
+                    <div id="user-pfp-nav"
+                    onclick="openProfile()"
+                  class="avatar-sm" style="background-size: cover; background-position: center; border: 2px solid white; border-radius: 50%;"></div>
+                    <div id="menu-icon" class="menu-icon">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        
+        <div id="profile-page" class="hidden">
+    <div class="profile-header card">
+        <button onclick="closeProfilePage()" class="back-btn">← Back</button>
+        <div class="profile-info">
+            <div id="profile-pfp-large" class="avatar-lg"></div>
+            <h2 id="profile-name-display">Username</h2>
+            <p id="profile-bio">NexGen-Z এর একজন গর্বিত সদস্য।</p>
+        </div>
+        <div class="profile-stats">
+            <div><strong>0</strong><span>Posts</span></div>
+            <div><strong>0</strong><span>Friends</span></div>
+        </div>
+    </div>
+    <div id="user-posts-container">
+        </div>
+</div>
+        
+        <main class="container">
+            <section class="post-creator card">
+                <div class="user-row">
+                    <div id="post-creator-avatar"
+                    onclick="openProfile()"
+                  class="avatar-placeholder" style="background-size: cover; background-position: center; border-radius: 10px;"></div>
+                    <textarea placeholder="আপনার মনে কি আছে?" id="post-text"></textarea>
+                </div>
+                <div class="post-options">
+                    <button class="opt-btn">🖼️ Photo</button>
+                    <button class="opt-btn">🎬 Video</button>
+                    <button class="post-btn">Post</button>
+                </div>
+            </section>
+
+            <section id="feed-container">
+                </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
